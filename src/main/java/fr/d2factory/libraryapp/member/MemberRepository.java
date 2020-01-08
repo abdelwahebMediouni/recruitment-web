@@ -12,7 +12,12 @@ public class MemberRepository {
 	
     private Map<Member, Set<Book>> listOfMemberBooks = new HashMap<>();
     
-    
+    /**
+     * Add a book to a member
+     * 
+     * @param member
+     * @param book
+     */
    public void addBookToMember(Member member, Book book){
 	   if (listOfMemberBooks.containsKey(member) ) {
 	    	listOfMemberBooks.get(member).add(book);
@@ -22,13 +27,24 @@ public class MemberRepository {
 	   }
     	
     }
-    
+    /**
+     * Delete book to a member
+     * 
+     * @param member
+     * @param book
+     */
    public void deleteBookToMember(Member member, Book book){
     	
     	if (listOfMemberBooks.get(member).contains(book) ) {
     		listOfMemberBooks.get(member).remove(book);
     	}
     }
+   /**
+    * get list of books borrowed
+    * 
+    * @param member
+    * @return
+    */
     
    public Set<Book>  getListOfBooksBorrowed(Member member){
     	

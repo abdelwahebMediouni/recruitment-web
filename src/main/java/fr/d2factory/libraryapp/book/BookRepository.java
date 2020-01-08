@@ -14,8 +14,6 @@ import java.util.stream.Collectors;
 public class BookRepository {
 	private Map<ISBN, Book> availableBooks = new HashMap<>();
 	private Map<Book, LocalDate> borrowedBooks = new HashMap<>();
-	
-	
 
 	public Map<ISBN, Book> getAvailableBooks() {
 		return availableBooks;
@@ -33,6 +31,10 @@ public class BookRepository {
 		this.borrowedBooks = borrowedBooks;
 	}
 
+	/**
+	 * 
+	 * @param books
+	 */
 	public void addBooks(List<Book> books) {
 		final boolean atLeastOneBookAvailable = (books != null && !books.isEmpty());
 		if (atLeastOneBookAvailable) {
@@ -41,6 +43,12 @@ public class BookRepository {
 		}
 	}
 
+	/**
+	 *  find book by isbnCode
+	 *  
+	 * @param isbnCode
+	 * @return
+	 */
 	public Book findBook(long isbnCode) {
 
 		for (Map.Entry<ISBN, Book> book : availableBooks.entrySet()) {
@@ -54,6 +62,13 @@ public class BookRepository {
 
 	}
 
+	/**
+	 * save a book that has benn borrowed
+	 * 
+	 * @param book
+	 * @param borrowedAt
+	 */
+
 	public void saveBookBorrow(Book book, LocalDate borrowedAt) {
 		if (book != null) {
 			borrowedBooks.put(book, borrowedAt);
@@ -62,6 +77,11 @@ public class BookRepository {
 		}
 	}
 
+	/**
+	 * Save a book that has been returned
+	 * 
+	 * @param book
+	 */
 	public void saveBookReturned(Book book) {
 		if (book != null) {
 			borrowedBooks.remove(book);
@@ -69,6 +89,14 @@ public class BookRepository {
 
 		}
 	}
+
+	/**
+	 * 
+	 * Find borrowed book date
+	 * 
+	 * @param book
+	 * @return
+	 */
 
 	public LocalDate findBorrowedBookDate(Book book) {
 
