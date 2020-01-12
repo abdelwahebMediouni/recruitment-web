@@ -15,7 +15,7 @@ public class Resident extends Member {
 
 	public Resident(BigDecimal wallet) {
 		super(wallet);
-		this.maxDaysKeepBook= Constants.MAX_DAYS_STUDENT_KEEP_BOOK;
+		this.maxDaysKeepBook= Constants.MAX_DAYS_RESIDENT_KEEP_BOOK;
 
 	}
 
