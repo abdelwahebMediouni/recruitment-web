@@ -52,7 +52,6 @@ public class LibraryTest {
         });
         
 
-//		System.out.println( books.stream().collect(Collectors.toMap(Book::getIsbn, book -> book)).size() ) ;
         bookRepository.addBooks(books);
     }
 
